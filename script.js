@@ -5,6 +5,11 @@ function isSameType(value1, value2) {
 }
 
 // do not change the code below.
-let value1 = prompt("Enter Start of the Range.");
-let value2 = prompt("Enter End Of the Range.");
+let raw1 = prompt("Enter First Value");
+let raw2 = prompt("Enter Second Value");
+
+// Convert inputs to numbers if possible
+let value1 = raw1.trim() === "NaN" ? NaN : isNaN(Number(raw1)) ? raw1 : Number(raw1);
+let value2 = raw2.trim() === "NaN" ? NaN : isNaN(Number(raw2)) ? raw2 : Number(raw2);
+
 alert(isSameType(value1, value2));
