@@ -1,6 +1,10 @@
 function isSameType(value1, value2) {
-  const bothNaN = Number.isNaN(value1) && Number.isNaN(value2);
-  if (bothNaN) return true;
+  const isNaN1 = Number.isNaN(value1);
+  const isNaN2 = Number.isNaN(value2);
+
+  if (isNaN1 && isNaN2) return true;
+  if (isNaN1 || isNaN2) return false; // ✅ One is NaN, other isn't
+
   return typeof value1 === typeof value2;
 }
 
@@ -8,7 +12,6 @@ function isSameType(value1, value2) {
 let raw1 = prompt("Enter First Value");
 let raw2 = prompt("Enter Second Value");
 
-// Fix: Convert input to string before .trim()
 function parseInput(str) {
   str = String(str).trim();
   if (str === "NaN") return NaN;
