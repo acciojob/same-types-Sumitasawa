@@ -8,9 +8,9 @@ function isSameType(value1, value2) {
 let raw1 = prompt("Enter First Value");
 let raw2 = prompt("Enter Second Value");
 
-// Helper to convert input string into proper type
+// Fix: Convert input to string before .trim()
 function parseInput(str) {
-  str = str.trim();
+  str = String(str).trim();
   if (str === "NaN") return NaN;
   let num = Number(str);
   return isNaN(num) ? str : num;
