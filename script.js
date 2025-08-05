@@ -4,12 +4,19 @@ function isSameType(value1, value2) {
   return typeof value1 === typeof value2;
 }
 
-// do not change the code below.
+// Do not change the code below
 let raw1 = prompt("Enter First Value");
 let raw2 = prompt("Enter Second Value");
 
-// Convert inputs to numbers if possible
-let value1 = raw1.trim() === "NaN" ? NaN : isNaN(Number(raw1)) ? raw1 : Number(raw1);
-let value2 = raw2.trim() === "NaN" ? NaN : isNaN(Number(raw2)) ? raw2 : Number(raw2);
+// Helper to convert input string into proper type
+function parseInput(str) {
+  str = str.trim();
+  if (str === "NaN") return NaN;
+  let num = Number(str);
+  return isNaN(num) ? str : num;
+}
+
+let value1 = parseInput(raw1);
+let value2 = parseInput(raw2);
 
 alert(isSameType(value1, value2));
